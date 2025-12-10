@@ -7,9 +7,15 @@ services:
       POSTGRES_USER: sfsuser
       POSTGRES_PASSWORD: sfspassword
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sfsuser -d sfsdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
 
   api:
     image: mcloots/mich-sfs-api:latest
@@ -18,14 +24,15 @@ services:
       CONNECTION_STRING: Host=db;Port=5432;Database=sfsdb;Username=sfsuser;Password=sfspassword
       ALLOWED_ORIGINS: http://localhost:4200
     ports:
-      - '6007:8080'
+      - "6007:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   frontend:
     image: mcloots/mich-sfs-client:latest
     ports:
-      - '4200:80'
+      - "4200:80"
     depends_on:
       - api
 

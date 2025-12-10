@@ -9,8 +9,9 @@
 
 ```bash
 git clone https://github.com/mcloots/student-followup-system
+
 cd student-followup-system
-docker compose pull
+
 docker compose up -d
 ```
 
@@ -40,8 +41,9 @@ docker compose down
 
 ```bash
 git clone https://github.com/mcloots/student-followup-system
+
 cd student-followup-system
-docker compose pull
+
 docker compose up -d
 ```
 
