@@ -35,7 +35,11 @@ docker compose up -d
 docker compose down
 ```
 
-## 5. Opgepast!
+## 5. Start-Update-Scripts
+
+Vind het script voor jou OS terug om de container makkelijk te updaten en starten!
+
+## 6. Opgepast!
 
 - Verwijder NOOIT de **volume** `db_data`
 - Voer nooit onderstaande commando's uit:
@@ -85,7 +89,11 @@ docker compose up -d
 docker compose down
 ```
 
-## 5. Important Warning
+## 5. Start-Update-Scripts
+
+Find the script for your OS to easily update and start the container!
+
+## 6. Important Warning
 
 - Make sure to NOT remove the **volume** `db_data`
 - Never execute the following commands:
