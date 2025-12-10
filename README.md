@@ -16,7 +16,7 @@ docker compose up -d
 
 ## 3. SFS applicatie openen
 
-![http://localhost:4200](http://localhost:4200)
+[http://localhost:4200](http://localhost:4200)
 
 ## 4. Applicatie stoppen
 
@@ -47,7 +47,7 @@ docker compose up -d
 
 ## 3. Open the SFS Application
 
-![http://localhost:4200](http://localhost:4200)
+[http://localhost:4200](http://localhost:4200)
 
 ## 4. Stopping the Application
 
