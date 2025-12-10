@@ -27,8 +27,16 @@ docker compose down
 
 ## 5. Opgepast!
 
-- Verwijder de Docker containers niet! Geen `docker rm` of via de Docker Desktop GUI.
-- Als je containers manueel verwijdert, verlies je jouw lokale databasegegevens die in de container bewaard worden.
+- Verwijder NOOIT de **volume** `db_data`
+- Voer nooit onderstaande commando's uit:
+
+```bash
+docker volume rm db_data
+
+docker compose down -v
+
+docker system prune --volumes
+```
 
 # Installation instructions
 
@@ -59,5 +67,13 @@ docker compose down
 
 ## 5. Important Warning
 
-- Do not delete the Docker containers manually — avoid using `docker rm` or the Docker Desktop GUI.
-- If you remove containers manually, you will lose your local database data, as it is stored inside the container.
+- Make sure to NOT remove the **volume** `db_data`
+- Never execute the following commands:
+
+```bash
+docker volume rm db_data
+
+docker compose down -v
+
+docker system prune --volumes
+```
