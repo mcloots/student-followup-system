@@ -15,6 +15,16 @@ cd student-followup-system
 docker compose up -d
 ```
 
+### 2.1 Update
+
+Heb je al een versie geïnstalleerd? Je kan updaten d.m.v. de volgende commando's:
+
+```bash
+docker compose pull
+
+docker compose up -d
+```
+
 ## 3. SFS applicatie openen
 
 [http://localhost:4200](http://localhost:4200)
@@ -51,6 +61,16 @@ docker system prune --volumes
 git clone https://github.com/mcloots/student-followup-system
 
 cd student-followup-system
+
+docker compose up -d
+```
+
+### 2.1 Update
+
+Already installed a version? You can update the container using the following commands:
+
+```bash
+docker compose pull
 
 docker compose up -d
 ```
