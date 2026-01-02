@@ -1,27 +1,27 @@
 services:
   db:
     image: postgres:16
-    container_name: sfs_postgres
+    container_name: studex_postgres
     environment:
-      POSTGRES_DB: sfsdb
-      POSTGRES_USER: sfsuser
-      POSTGRES_PASSWORD: sfspassword
+      POSTGRES_DB: studexdb
+      POSTGRES_USER: studexuser
+      POSTGRES_PASSWORD: studexpassword
     ports:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U sfsuser -d sfsdb"]
+      test: ["CMD-SHELL", "pg_isready -U studexuser -d studexdb"]
       interval: 5s
       timeout: 3s
       retries: 10
       start_period: 10s
 
   api:
-    image: mcloots/mich-sfs-api:latest
+    image: mcloots/mich-studex-api:latest
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      CONNECTION_STRING: Host=db;Port=5432;Database=sfsdb;Username=sfsuser;Password=sfspassword
+      CONNECTION_STRING: Host=db;Port=5432;Database=studexdb;Username=studexuser;Password=studexpassword
       ALLOWED_ORIGINS: http://localhost:4200
     ports:
       - "6007:8080"
@@ -30,7 +30,7 @@ services:
         condition: service_healthy
 
   frontend:
-    image: mcloots/mich-sfs-client:latest
+    image: mcloots/mich-studex-client:latest
     ports:
       - "4200:80"
     depends_on:
